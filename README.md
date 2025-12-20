@@ -1,6 +1,6 @@
 # 5-Year Financial Statement Analysis Project
 
-## Project Overview
+## Overview
 
 This project presents a comprehensive financial statement analysis spanning five years, utilizing audited annual report data to evaluate organizational performance across multiple dimensions. The analysis integrates financial ratio computation with rigorous statistical methods to generate evidence-based insights into liquidity, profitability, and operational efficiency trends.
 
@@ -17,7 +17,7 @@ This project presents a comprehensive financial statement analysis spanning five
 
 **Data Source**: Secondary data extracted from published audited annual reports
 
-**Data Processing**:
+**Data Processing Steps**:
 - Collected financial data from official annual reports across five consecutive years
 - Transformed raw financial statements into clean, analysis-ready formats
 - Structured data into year-wise comparison tables for temporal analysis
@@ -125,6 +125,30 @@ Built multiple regression models to explore predictive relationships:
 └── README.md
 ```
 
+## Getting Started
+
+### Prerequisites
+
+- Excel 2016 or later / Python 3.8+
+- Statistical analysis software (optional): R, SPSS, or Python libraries (pandas, numpy, scipy, statsmodels)
+- Basic understanding of financial ratios and statistical concepts
+
+### Installation
+
+1. Clone this repository or download the project files
+2. Ensure all data files are placed in the `data/raw/` directory
+3. Install required Python packages (if using Python):
+   ```bash
+   pip install pandas numpy scipy statsmodels matplotlib seaborn
+   ```
+
+### Usage
+
+1. **Data Preparation**: Place audited annual reports in `data/raw/`
+2. **Ratio Calculation**: Run analysis scripts in `analysis/ratios/`
+3. **Statistical Analysis**: Execute descriptive, correlation, and regression analyses
+4. **Review Results**: Check `reports/` directory for final outputs and interpretations
+
 ## Conclusions
 
 The integrated approach combining traditional financial ratio analysis with statistical methods provides a robust framework for understanding organizational financial performance. The use of correlation and regression analysis strengthens conclusions beyond descriptive observations, enabling evidence-based decision-making and strategic planning.
@@ -143,8 +167,21 @@ The integrated approach combining traditional financial ratio analysis with stat
 - Add sensitivity analysis for key financial drivers
 - Expand dataset to include more recent fiscal years
 
+## Contributing
+
+Contributions to enhance the analysis methodology or expand the scope are welcome. Please submit pull requests or open issues for discussion.
+
+## License
+
+This project is available for educational and research purposes.
+
+## Contact
+
+For questions or collaboration opportunities, please reach out through the repository's issue tracker.
+
 ---
 
 **Project Duration**: 5 fiscal years analyzed  
 **Data Type**: Secondary data from audited annual reports  
-**Analytical Approach**: Mixed methods (financial analysis + statistical modeling)
+**Analytical Approach**: Mixed methods (financial analysis + statistical modeling)  
+**Last Updated**: Decembe
