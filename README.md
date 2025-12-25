@@ -1,187 +1,93 @@
-# 5-Year Financial Statement Analysis Project
+# Data Analytics on Loan and Advances
 
-## Overview
+## Project Overview
 
-This project presents a comprehensive financial statement analysis spanning five years, utilizing audited annual report data to evaluate organizational performance across multiple dimensions. The analysis integrates financial ratio computation with rigorous statistical methods to generate evidence-based insights into liquidity, profitability, and operational efficiency trends.
+This Jupyter Notebook (`Data Analytics on Loan and Advances.ipynb`) performs exploratory data analysis (EDA) and preparation on a loan dataset (`loan_data.csv`) containing customer and loan application information. The goal is to understand the characteristics of the data, identify patterns, and prepare it for potential predictive modeling (e.g., loan default prediction).
 
-## Objectives
+The dataset contains **50,000 rows** and includes a mix of numerical and categorical features related to borrowers and their loan applications.
 
-- Evaluate liquidity, profitability, and operating efficiency trends over a 5-year period
-- Identify patterns and relationships among key financial indicators
-- Assess the stability and volatility of financial performance metrics
-- Determine predictive relationships between financial ratios using statistical modeling
+## Dataset Description
 
-## Methodology
+The dataset (`loan_data.csv`) has the following columns:
 
-### Data Collection & Preparation
+| Column                      | Description                                      | Type       |
+|-----------------------------|--------------------------------------------------|------------|
+| `customer_id`               | Unique customer identifier                       | Categorical|
+| `age`                       | Age of the applicant                             | Numerical  |
+| `occupation_status`          | Employment status (Employed, Self-Employed, Student) | Categorical|
+| `years_employed`            | Years of employment                              | Numerical  |
+| `annual_income`             | Annual income of the applicant                   | Numerical  |
+| `credit_score`              | Credit score                                     | Numerical  |
+| `credit_history_years`      | Length of credit history in years                | Numerical  |
+| `savings_assets`            | Value of savings/assets                          | Numerical  |
+| `current_debt`              | Current outstanding debt                         | Numerical  |
+| `defaults_on_file`          | Number of defaults on file (0/1)                  | Binary     |
+| `delinquencies_last_2yrs`   | Number of delinquencies in last 2 years           | Numerical  |
+| `derogatory_marks`          | Number of derogatory marks                       | Numerical  |
+| `product_type`              | Type of product (Credit Card, Personal Loan, Line of Credit) | Categorical|
+| `loan_intent`               | Purpose of the loan (Personal, Education, Medical, etc.) | Categorical|
+| `loan_amount`               | Requested loan amount                            | Numerical  |
+| `interest_rate`             | Interest rate offered                            | Numerical  |
+| `debt_to_income_ratio`      | Debt-to-income ratio                             | Numerical  |
+| `loan_to_income_ratio`      | Loan amount to income ratio                      | Numerical  |
+| `payment_to_income_ratio`   | Estimated monthly payment to income ratio        | Numerical  |
+| **Target**                  |                                                  |            |
+| `loan_status`               | Loan outcome (1 = Default, 0 = Fully Paid)       | Binary     |
 
-**Data Source**: Secondary data extracted from published audited annual reports
+## Key Insights from Categorical Analysis
 
-**Data Processing Steps**:
-- Collected financial data from official annual reports across five consecutive years
-- Transformed raw financial statements into clean, analysis-ready formats
-- Structured data into year-wise comparison tables for temporal analysis
-- Ensured data quality and consistency across reporting periods
+### Occupation Status
+- **3 unique values**
+- **Most common**: Employed (69.94%)
+- Distribution:
+  - Employed: 34,971 (69.94%)
+  - Self-Employed: 10,179 (20.36%)
+  - Student: 4,850 (9.70%)
 
-### Financial Ratio Analysis
+### Product Type
+- **3 unique values**
+- **Most common**: Credit Card (44.91%)
+- Distribution:
+  - Credit Card: 22,455 (44.91%)
+  - Personal Loan: 17,523 (35.05%)
+  - Line of Credit: 10,022 (20.04%)
 
-Computed and interpreted key financial ratios across three dimensions:
+### Loan Intent
+- **6 unique values**
+- **Most common**: Personal (24.86%)
+- Top intents:
+  - Personal: 12,429 (24.86%)
+  - Education: 10,134 (20.27%)
+  - Medical: 7,598 (15.20%)
+  - Business: 7,469 (14.94%)
+  - Home Improvement: 7,453 (14.91%)
+  - Debt Consolidation: 4,917 (9.83%)
 
-**Liquidity Ratios**
-- Current Ratio (CR)
-- Quick Ratio
-- Cash Ratio
+## Notebook Structure
 
-**Profitability Ratios**
-- Return on Equity (ROE)
-- Return on Assets (ROA)
-- Net Profit Margin (NPM)
-- Gross Profit Margin (GPM)
+1. **Import Libraries**
+   - `numpy`, `pandas`, `matplotlib`, `seaborn`, `sklearn`
 
-**Efficiency Ratios**
-- Asset Turnover Ratio (ATR)
-- Inventory Turnover
-- Receivables Turnover
+2. **Load Data**
+   - Reads `loan_data.csv`
+   - Displays first few rows
 
-### Statistical Analysis
+3. **Categorical Features Analysis**
+   - Detailed summary of categorical columns:
+     - Unique value counts
+     - Most frequent value
+     - Top 10 value counts with percentages (styled table)
 
-#### Descriptive Statistics
+4. **(Planned/Upcoming Sections)**
+   - Numerical feature analysis
+   - Correlation analysis
+   - Visualization (distributions, loan status breakdowns)
+   - Feature engineering
+   - Modeling (if extended)
 
-For each financial ratio, calculated:
-- **Mean**: Average performance across the 5-year period
-- **Standard Deviation (SD)**: Absolute variability of performance
-- **Coefficient of Variation (CV)**: Relative volatility measure (SD/Mean × 100)
+## Requirements
 
-**Purpose**: Assess consistency and stability of financial metrics; identify periods of high volatility or stability
+To run this notebook locally:
 
-#### Correlation Analysis
-
-Conducted Pearson correlation analysis to examine relationships among financial indicators:
-
-**Key Findings**:
-- Strong positive association between profitability indicators (ROE, ROA, NPM)
-- Inverse relationship observed between efficiency and profitability metrics
-- Identified interconnected performance drivers
-
-#### Regression Analysis
-
-Built multiple regression models to explore predictive relationships:
-
-**Dependent Variables**:
-- Return on Assets (ROA)
-- Return on Equity (ROE)
-- Net Profit Margin (NPM)
-
-**Independent Variables (Predictors)**:
-- Current Ratio (CR)
-- Gross Profit Margin (GPM)
-- Asset Turnover Ratio (ATR)
-
-**Analysis Focus**:
-- Directional impact of predictors on profitability measures
-- Explanatory power (R²) of models
-- Statistical significance of relationships
-- Coefficient interpretation and practical implications
-
-## Key Insights
-
-### Performance Trends
-- Year-over-year evolution of liquidity, profitability, and efficiency metrics
-- Identification of improving or deteriorating financial health indicators
-
-### Stability Assessment
-- High CV values indicate volatile/unstable performance
-- Low CV values suggest consistent performance patterns
-
-### Relationship Patterns
-- Profitability indicators move together (positive correlation)
-- Trade-offs observed between operational efficiency and profit margins
-- Liquidity impacts on overall financial performance
-
-### Predictive Relationships
-- Quantified impact of liquidity and efficiency on profitability
-- Identified key drivers of financial performance through regression coefficients
-
-## Tools & Techniques
-
-- **Data Processing**: Excel/Python for data transformation and cleaning
-- **Statistical Analysis**: Descriptive statistics, correlation matrices, regression modeling
-- **Visualization**: Trend charts, scatter plots, correlation heatmaps
-- **Validation**: Cross-verification with audited financial statements
-
-## Project Structure
-
-```
-├── data/
-│   ├── raw/                 # Original annual report data
-│   └── processed/           # Clean, analysis-ready datasets
-├── analysis/
-│   ├── ratios/             # Financial ratio calculations
-│   ├── descriptive/        # Mean, SD, CV computations
-│   ├── correlation/        # Correlation analysis results
-│   └── regression/         # Regression models and outputs
-├── visualizations/         # Charts, graphs, and dashboards
-├── reports/               # Final analysis reports and interpretations
-└── README.md
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Excel 2016 or later / Python 3.8+
-- Statistical analysis software (optional): R, SPSS, or Python libraries (pandas, numpy, scipy, statsmodels)
-- Basic understanding of financial ratios and statistical concepts
-
-### Installation
-
-1. Clone this repository or download the project files
-2. Ensure all data files are placed in the `data/raw/` directory
-3. Install required Python packages (if using Python):
-   ```bash
-   pip install pandas numpy scipy statsmodels matplotlib seaborn
-   ```
-
-### Usage
-
-1. **Data Preparation**: Place audited annual reports in `data/raw/`
-2. **Ratio Calculation**: Run analysis scripts in `analysis/ratios/`
-3. **Statistical Analysis**: Execute descriptive, correlation, and regression analyses
-4. **Review Results**: Check `reports/` directory for final outputs and interpretations
-
-## Conclusions
-
-The integrated approach combining traditional financial ratio analysis with statistical methods provides a robust framework for understanding organizational financial performance. The use of correlation and regression analysis strengthens conclusions beyond descriptive observations, enabling evidence-based decision-making and strategic planning.
-
-## Limitations & Considerations
-
-- Analysis based on historical data; future performance may differ
-- Limited to publicly available audited financial information
-- Industry-specific contexts should be considered when interpreting results
-- Statistical relationships indicate association, not necessarily causation
-
-## Future Enhancements
-
-- Extend analysis to include industry benchmarking
-- Incorporate forecasting models for predictive insights
-- Add sensitivity analysis for key financial drivers
-- Expand dataset to include more recent fiscal years
-
-## Contributing
-
-Contributions to enhance the analysis methodology or expand the scope are welcome. Please submit pull requests or open issues for discussion.
-
-## License
-
-This project is available for educational and research purposes.
-
-## Contact
-
-For questions or collaboration opportunities, please reach out through the repository's issue tracker.
-
----
-
-**Project Duration**: 5 fiscal years analyzed  
-**Data Type**: Secondary data from audited annual reports  
-**Analytical Approach**: Mixed methods (financial analysis + statistical modeling)  
-**Last Updated**: Decembe
+```bash
+pip install numpy pandas matplotlib seaborn scikit-learn
